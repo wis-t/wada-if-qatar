@@ -1,0 +1,1111 @@
+```html
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="وظائف قطر - اكتشف أحدث فرص العمل في الدوحة وجميع مناطق قطر">
+<title>وظائف قطر | Qatar Jobs Hub</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+font-family:Tahoma,Arial,sans-serif;
+background:#f5f7f8;
+color:#17212b;
+line-height:1.7
+}
+button,input,select{font-family:inherit}
+.container{width:min(1150px,92%);margin:auto}
+
+/* HEADER */
+.header{
+background:#fff;
+border-bottom:1px solid #e7ecea;
+position:sticky;
+top:0;
+z-index:100
+}
+.nav{
+height:70px;
+display:flex;
+align-items:center;
+justify-content:space-between
+}
+.logo{
+display:flex;
+align-items:center;
+gap:10px;
+font-weight:900;
+font-size:20px
+}
+.logo-icon{
+width:43px;height:43px;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:12px;
+background:#087f5b;
+color:white;
+font-size:23px
+}
+.nav-btn{
+background:#087f5b;
+color:#fff;
+border:0;
+padding:10px 20px;
+border-radius:10px;
+font-weight:800;
+cursor:pointer
+}
+
+/* HERO */
+.hero{
+padding:70px 20px 105px;
+color:#fff;
+text-align:center;
+background:
+radial-gradient(circle at 10% 20%,rgba(255,255,255,.12),transparent 25%),
+radial-gradient(circle at 90% 80%,rgba(255,255,255,.12),transparent 30%),
+linear-gradient(135deg,#075c43,#087f5b,#0b9b70)
+}
+.badge{
+display:inline-block;
+padding:6px 15px;
+border-radius:30px;
+background:rgba(255,255,255,.13);
+border:1px solid rgba(255,255,255,.2);
+font-size:13px;
+font-weight:800;
+margin-bottom:18px
+}
+.hero h1{
+font-size:clamp(35px,6vw,62px);
+line-height:1.15;
+font-weight:950
+}
+.hero h1 span{color:#d7fff0}
+.hero p{
+max-width:700px;
+margin:18px auto 28px;
+font-size:18px;
+opacity:.94
+}
+
+/* SEARCH */
+.search{
+max-width:900px;
+margin:auto;
+background:#fff;
+padding:8px;
+border-radius:17px;
+display:grid;
+grid-template-columns:1fr 190px 150px;
+gap:8px;
+box-shadow:0 18px 45px rgba(0,0,0,.16)
+}
+.search input,
+.search select{
+width:100%;
+border:0;
+outline:0;
+background:#fff;
+padding:14px;
+font-size:14px;
+color:#263238
+}
+.search button{
+border:0;
+border-radius:11px;
+background:#087f5b;
+color:#fff;
+font-weight:900;
+cursor:pointer
+}
+
+/* STATS */
+.stats{
+margin-top:-48px;
+position:relative;
+z-index:5
+}
+.stats-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:15px
+}
+.stat{
+background:#fff;
+padding:23px;
+text-align:center;
+border-radius:18px;
+box-shadow:0 12px 35px rgba(20,40,40,.09)
+}
+.stat strong{
+display:block;
+font-size:27px;
+color:#087f5b;
+font-weight:950
+}
+.stat span{
+font-size:13px;
+color:#737d82
+}
+
+/* MAIN */
+.main{padding:60px 0}
+.section-title{
+text-align:center;
+margin-bottom:28px
+}
+.section-title h2{
+font-size:30px;
+font-weight:950
+}
+.section-title p{
+color:#737d82;
+font-size:14px
+}
+
+/* MUNICIPALITIES */
+.municipalities{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:14px;
+margin-bottom:55px
+}
+.area{
+background:#fff;
+border:1px solid #edf0f0;
+border-radius:17px;
+padding:20px;
+cursor:pointer;
+transition:.2s
+}
+.area:hover{
+transform:translateY(-4px);
+box-shadow:0 12px 30px rgba(20,40,40,.08)
+}
+.area-icon{
+width:48px;height:48px;
+border-radius:13px;
+background:#e7f7f1;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:24px;
+margin-bottom:10px
+}
+.area h3{font-size:16px}
+.area p{
+font-size:12px;
+color:#7a8388
+}
+
+/* CATEGORIES */
+.categories{
+display:grid;
+grid-template-columns:repeat(5,1fr);
+gap:13px;
+margin-bottom:55px
+}
+.category{
+background:#fff;
+border-radius:16px;
+padding:18px;
+border:1px solid #edf0f0;
+cursor:pointer;
+transition:.2s
+}
+.category:hover{
+transform:translateY(-3px)
+}
+.category-icon{
+font-size:25px;
+margin-bottom:8px
+}
+.category h3{font-size:15px}
+.category p{
+font-size:11px;
+color:#7a8388
+}
+
+/* JOBS */
+.jobs{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:20px
+}
+.job{
+background:#fff;
+border-radius:20px;
+overflow:hidden;
+border:1px solid #e9eeee;
+box-shadow:0 8px 25px rgba(20,40,40,.05);
+transition:.2s
+}
+.job:hover{
+transform:translateY(-4px);
+box-shadow:0 15px 35px rgba(20,40,40,.09)
+}
+.job-image{
+height:190px;
+overflow:hidden
+}
+.job-image img{
+width:100%;
+height:100%;
+object-fit:cover;
+display:block
+}
+.job-body{padding:22px}
+.job-top{
+display:flex;
+justify-content:space-between;
+gap:15px
+}
+.job h3{
+font-size:19px;
+margin-bottom:3px
+}
+.company{
+font-size:13px;
+color:#727c81
+}
+.new{
+background:#e8f8f1;
+color:#087f5b;
+padding:4px 9px;
+border-radius:20px;
+height:max-content;
+font-size:10px;
+font-weight:900
+}
+.job-info{
+display:flex;
+flex-wrap:wrap;
+gap:7px;
+margin:16px 0
+}
+.tag{
+background:#f1f4f4;
+padding:5px 9px;
+border-radius:8px;
+font-size:11px;
+color:#657075
+}
+.apply{
+display:block;
+text-align:center;
+padding:12px;
+border-radius:10px;
+background:#087f5b;
+color:#fff;
+font-size:14px;
+font-weight:900;
+cursor:pointer
+}
+
+/* CTA */
+.cta{
+margin:55px 0;
+padding:50px 25px;
+border-radius:25px;
+text-align:center;
+color:#fff;
+background:linear-gradient(135deg,#075c43,#087f5b)
+}
+.cta h2{font-size:32px}
+.cta p{
+max-width:600px;
+margin:8px auto 20px;
+opacity:.9
+}
+.cta button{
+border:0;
+padding:13px 27px;
+border-radius:10px;
+background:#fff;
+color:#087f5b;
+font-weight:900;
+cursor:pointer
+}
+
+/* FAQ */
+.faq{
+background:#fff;
+padding:30px;
+border-radius:20px
+}
+.faq details{
+padding:17px 0;
+border-bottom:1px solid #edf0f0
+}
+.faq summary{
+cursor:pointer;
+font-weight:900
+}
+.faq p{
+padding-top:9px;
+font-size:13px;
+color:#707a80
+}
+
+/* FOOTER */
+.footer{
+background:#13201b;
+color:#aab5b1;
+text-align:center;
+padding:30px 20px;
+font-size:12px
+}
+.footer strong{color:#fff}
+
+/* EMPTY */
+.empty{
+display:none;
+grid-column:1/-1;
+background:#fff;
+padding:35px;
+border-radius:18px;
+text-align:center;
+color:#747e83
+}
+
+/* MOBILE */
+@media(max-width:850px){
+.search{
+grid-template-columns:1fr;
+padding:10px
+}
+.search button{height:48px}
+.municipalities{
+grid-template-columns:repeat(2,1fr)
+}
+.categories{
+grid-template-columns:repeat(2,1fr)
+}
+.jobs{
+grid-template-columns:1fr
+}
+.stats-grid{
+grid-template-columns:1fr
+}
+}
+@media(max-width:500px){
+.hero{padding:50px 15px 85px}
+.hero h1{font-size:38px}
+.hero p{font-size:15px}
+.municipalities,
+.categories{
+grid-template-columns:1fr
+}
+.job-image{height:170px}
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+<div class="container nav">
+
+<div class="logo">
+<div class="logo-icon">🇶🇦</div>
+وظائف قطر
+</div>
+
+<button class="nav-btn" onclick="scrollJobs()">
+الوظائف
+</button>
+
+</div>
+</header>
+
+
+<section class="hero">
+
+<div class="container">
+
+<div class="badge">
+🇶🇦 فرص عمل في قطر
+</div>
+
+<h1>
+اكتشف <span>وظيفتك القادمة</span><br>
+في قطر
+</h1>
+
+<p>
+ابحث عن فرص العمل حسب المجال والمنطقة والخبرة،
+واكتشف أحدث الوظائف المتاحة في قطر.
+</p>
+
+<div class="search">
+
+<input
+id="searchInput"
+type="text"
+placeholder="ابحث عن وظيفة، مهارة أو شركة..."
+>
+
+<select id="locationSelect">
+<option value="all">جميع المناطق</option>
+<option value="الدوحة">الدوحة</option>
+<option value="الريان">الريان</option>
+<option value="الوكرة">الوكرة</option>
+<option value="أم صلال">أم صلال</option>
+<option value="الخور والذخيرة">الخور والذخيرة</option>
+<option value="الظعاين">الظعاين</option>
+<option value="الشحانية">الشحانية</option>
+<option value="الشمال">الشمال</option>
+</select>
+
+<button onclick="searchJobs()">
+🔎 بحث
+</button>
+
+</div>
+
+</div>
+</section>
+
+
+<section class="stats">
+<div class="container stats-grid">
+
+<div class="stat">
+<strong>🇶🇦 قطر</strong>
+<span>جميع المناطق</span>
+</div>
+
+<div class="stat">
+<strong>15+</strong>
+<span>تصنيف وظيفي</span>
+</div>
+
+<div class="stat">
+<strong>24/7</strong>
+<span>تحديثات وفرص جديدة</span>
+</div>
+
+</div>
+</section>
+
+
+<main class="main">
+<div class="container">
+
+
+<div class="section-title">
+<h2>📍 اختر منطقتك</h2>
+<p>استكشف فرص العمل حسب البلدية</p>
+</div>
+
+
+<div class="municipalities">
+
+<div class="area" onclick="filterLocation('الدوحة')">
+<div class="area-icon">🏙️</div>
+<h3>الدوحة</h3>
+<p>فرص العمل في العاصمة</p>
+</div>
+
+<div class="area" onclick="filterLocation('الريان')">
+<div class="area-icon">🏘️</div>
+<h3>الريان</h3>
+<p>وظائف متنوعة</p>
+</div>
+
+<div class="area" onclick="filterLocation('الوكرة')">
+<div class="area-icon">🌊</div>
+<h3>الوكرة</h3>
+<p>وظائف وخدمات</p>
+</div>
+
+<div class="area" onclick="filterLocation('أم صلال')">
+<div class="area-icon">🏡</div>
+<h3>أم صلال</h3>
+<p>فرص عمل محلية</p>
+</div>
+
+<div class="area" onclick="filterLocation('الخور والذخيرة')">
+<div class="area-icon">⚓</div>
+<h3>الخور والذخيرة</h3>
+<p>وظائف صناعية وخدمية</p>
+</div>
+
+<div class="area" onclick="filterLocation('الظعاين')">
+<div class="area-icon">🏢</div>
+<h3>الظعاين</h3>
+<p>فرص مهنية</p>
+</div>
+
+<div class="area" onclick="filterLocation('الشحانية')">
+<div class="area-icon">🐪</div>
+<h3>الشحانية</h3>
+<p>فرص متنوعة</p>
+</div>
+
+<div class="area" onclick="filterLocation('الشمال')">
+<div class="area-icon">🌴</div>
+<h3>الشمال</h3>
+<p>فرص عمل محلية</p>
+</div>
+
+</div>
+
+
+<div class="section-title">
+<h2>💼 تصنيفات الوظائف</h2>
+<p>اختر المجال المناسب لك</p>
+</div>
+
+
+<div class="categories">
+
+<div class="category" onclick="filterCategory('سائق')">
+<div class="category-icon">🚗</div>
+<h3>السائقون</h3>
+<p>توصيل ونقل</p>
+</div>
+
+<div class="category" onclick="filterCategory('بناء')">
+<div class="category-icon">🏗️</div>
+<h3>البناء والتشييد</h3>
+<p>إنشاءات</p>
+</div>
+
+<div class="category" onclick="filterCategory('فندق')">
+<div class="category-icon">🏨</div>
+<h3>الفنادق والمطاعم</h3>
+<p>ضيافة</p>
+</div>
+
+<div class="category" onclick="filterCategory('أمن')">
+<div class="category-icon">🛡️</div>
+<h3>الأمن والحراسة</h3>
+<p>حماية</p>
+</div>
+
+<div class="category" onclick="filterCategory('مبيعات')">
+<div class="category-icon">🛒</div>
+<h3>المبيعات</h3>
+<p>تجارة</p>
+</div>
+
+<div class="category" onclick="filterCategory('تقنية')">
+<div class="category-icon">💻</div>
+<h3>تكنولوجيا المعلومات</h3>
+<p>IT</p>
+</div>
+
+<div class="category" onclick="filterCategory('هندسة')">
+<div class="category-icon">⚙️</div>
+<h3>الهندسة</h3>
+<p>هندسة ومشاريع</p>
+</div>
+
+<div class="category" onclick="filterCategory('محاسبة')">
+<div class="category-icon">📊</div>
+<h3>المحاسبة</h3>
+<p>مالية</p>
+</div>
+
+<div class="category" onclick="filterCategory('صحة')">
+<div class="category-icon">🩺</div>
+<h3>الصحة</h3>
+<p>رعاية صحية</p>
+</div>
+
+<div class="category" onclick="filterCategory('تعليم')">
+<div class="category-icon">🎓</div>
+<h3>التعليم</h3>
+<p>مدارس وتدريس</p>
+</div>
+
+</div>
+
+
+<div id="jobs">
+
+<div class="section-title">
+<h2>🔥 فرص وظيفية</h2>
+<p>نماذج بطاقات قابلة للتحديث وربطها بمصدر الوظيفة الأصلي</p>
+</div>
+
+
+<div class="jobs" id="jobList">
+
+<!-- JOB 1 -->
+
+<div class="job"
+data-category="سائق"
+data-location="الدوحة">
+
+<div class="job-image">
+<img
+src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=1000&q=80"
+alt="وظائف سائق في قطر"
+loading="lazy">
+</div>
+
+<div class="job-body">
+
+<div class="job-top">
+
+<div>
+<h3>سائق مركبة خفيفة</h3>
+<div class="company">قطاع النقل · الدوحة</div>
+</div>
+
+<div class="new">جديد</div>
+
+</div>
+
+<div class="job-info">
+<span class="tag">📍 الدوحة</span>
+<span class="tag">🚗 سائق</span>
+<span class="tag">دوام كامل</span>
+</div>
+
+<a href="#apply" class="apply"
+onclick="demoApply(event)">
+عرض التفاصيل
+</a>
+
+</div>
+</div>
+
+
+<!-- JOB 2 -->
+
+<div class="job"
+data-category="بناء"
+data-location="الريان">
+
+<div class="job-image">
+<img
+src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1000&q=80"
+alt="وظائف البناء في قطر"
+loading="lazy">
+</div>
+
+<div class="job-body">
+
+<div class="job-top">
+
+<div>
+<h3>عامل إنشاءات</h3>
+<div class="company">قطاع البناء · الريان</div>
+</div>
+
+<div class="new">جديد</div>
+
+</div>
+
+<div class="job-info">
+<span class="tag">📍 الريان</span>
+<span class="tag">🏗️ بناء</span>
+<span class="tag">دوام كامل</span>
+</div>
+
+<a href="#apply" class="apply"
+onclick="demoApply(event)">
+عرض التفاصيل
+</a>
+
+</div>
+</div>
+
+
+<!-- JOB 3 -->
+
+<div class="job"
+data-category="فندق"
+data-location="الوكرة">
+
+<div class="job-image">
+<img
+src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1000&q=80"
+alt="وظائف الفنادق في قطر"
+loading="lazy">
+</div>
+
+<div class="job-body">
+
+<div class="job-top">
+
+<div>
+<h3>موظف فندق وضيافة</h3>
+<div class="company">قطاع الضيافة · الوكرة</div>
+</div>
+
+<div class="new">جديد</div>
+
+</div>
+
+<div class="job-info">
+<span class="tag">📍 الوكرة</span>
+<span class="tag">🏨 فندق</span>
+<span class="tag">دوام كامل</span>
+</div>
+
+<a href="#apply" class="apply"
+onclick="demoApply(event)">
+عرض التفاصيل
+</a>
+
+</div>
+</div>
+
+
+<!-- JOB 4 -->
+
+<div class="job"
+data-category="أمن"
+data-location="أم صلال">
+
+<div class="job-image">
+<img
+src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=1000&q=80"
+alt="وظائف الأمن في قطر"
+loading="lazy">
+</div>
+
+<div class="job-body">
+
+<div class="job-top">
+
+<div>
+<h3>حارس أمن</h3>
+<div class="company">خدمات أمنية · أم صلال</div>
+</div>
+
+<div class="new">جديد</div>
+
+</div>
+
+<div class="job-info">
+<span class="tag">📍 أم صلال</span>
+<span class="tag">🛡️ أمن</span>
+<span class="tag">دوام كامل</span>
+</div>
+
+<a href="#apply" class="apply"
+onclick="demoApply(event)">
+عرض التفاصيل
+</a>
+
+</div>
+</div>
+
+
+<!-- JOB 5 -->
+
+<div class="job"
+data-category="تقنية"
+data-location="الدوحة">
+
+<div class="job-image">
+<img
+src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1000&q=80"
+alt="وظائف تقنية المعلومات في قطر"
+loading="lazy">
+</div>
+
+<div class="job-body">
+
+<div class="job-top">
+
+<div>
+<h3>دعم تقنية المعلومات</h3>
+<div class="company">تكنولوجيا المعلومات · الدوحة</div>
+</div>
+
+<div class="new">جديد</div>
+
+</div>
+
+<div class="job-info">
+<span class="tag">📍 الدوحة</span>
+<span class="tag">💻 تقنية</span>
+<span class="tag">دوام كامل</span>
+</div>
+
+<a href="#apply" class="apply"
+onclick="demoApply(event)">
+عرض التفاصيل
+</a>
+
+</div>
+</div>
+
+
+<!-- JOB 6 -->
+
+<div class="job"
+data-category="هندسة"
+data-location="الخور والذخيرة">
+
+<div class="job-image">
+<img
+src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1000&q=80"
+alt="وظائف الهندسة في قطر"
+loading="lazy">
+</div>
+
+<div class="job-body">
+
+<div class="job-top">
+
+<div>
+<h3>مهندس مشاريع</h3>
+<div class="company">الهندسة والمشاريع · الخور</div>
+</div>
+
+<div class="new">جديد</div>
+
+</div>
+
+<div class="job-info">
+<span class="tag">📍 الخور والذخيرة</span>
+<span class="tag">⚙️ هندسة</span>
+<span class="tag">دوام كامل</span>
+</div>
+
+<a href="#apply" class="apply"
+onclick="demoApply(event)">
+عرض التفاصيل
+</a>
+
+</div>
+</div>
+
+
+<div class="empty" id="empty">
+لا توجد نتائج مطابقة لبحثك.
+</div>
+
+</div>
+</div>
+
+
+<section class="cta">
+
+<h2>
+🚀 تبحث عن وظيفة في قطر؟
+</h2>
+
+<p>
+استخدم البحث أعلاه لاكتشاف الفرص حسب المجال والمنطقة.
+وتأكد دائمًا من مصدر الإعلان قبل إرسال بياناتك.
+</p>
+
+<button onclick="scrollJobs()">
+تصفح الوظائف
+</button>
+
+</section>
+
+
+<section class="faq">
+
+<div class="section-title">
+<h2>❓ الأسئلة الشائعة</h2>
+</div>
+
+<details>
+<summary>هل هذه الصفحة رسمية؟</summary>
+<p>
+لا. هذه صفحة مستقلة لمعلومات الوظائف وليست موقعًا حكوميًا
+ولا تمثل أي شركة توظيف أو جهة رسمية.
+</p>
+</details>
+
+<details>
+<summary>هل الوظائف المعروضة حقيقية؟</summary>
+<p>
+البطاقات الموجودة في هذه النسخة أمثلة لتصميم الموقع.
+عند إطلاق الموقع فعليًا يجب ربط كل إعلان بمصدر الوظيفة الأصلي
+وتحديث حالته باستمرار.
+</p>
+</details>
+
+<details>
+<summary>هل يمكن للوافدين التقديم على وظائف قطر؟</summary>
+<p>
+يعتمد ذلك على الوظيفة وصاحب العمل والمتطلبات القانونية والتأشيرة.
+يجب مراجعة شروط كل إعلان قبل التقديم.
+</p>
+</details>
+
+<details>
+<summary>كيف أتجنب عروض العمل الوهمية؟</summary>
+<p>
+تحقق من اسم الشركة ومصدر الإعلان، ولا تدفع أموالًا مقابل وعد
+بالتوظيف، ولا ترسل بيانات حساسة إلا عبر قناة موثوقة.
+</p>
+</details>
+
+</section>
+
+</div>
+</main>
+
+
+<footer class="footer">
+<strong>وظائف قطر | Qatar Jobs Hub</strong>
+<br><br>
+منصة مستقلة لمعلومات وفرص العمل.
+<br>
+تحقق دائمًا من مصدر الوظيفة قبل التقديم.
+<br><br>
+© 2026 Qatar Jobs Hub
+</footer>
+
+
+<script>
+
+function getJobs(){
+return document.querySelectorAll(".job");
+}
+
+function searchJobs(){
+
+const query=
+document.getElementById("searchInput")
+.value
+.trim()
+.toLowerCase();
+
+const location=
+document.getElementById("locationSelect")
+.value;
+
+let found=0;
+
+getJobs().forEach(function(job){
+
+const text=
+job.innerText.toLowerCase();
+
+const jobLocation=
+job.dataset.location;
+
+const textMatch=
+!query || text.includes(query);
+
+const locationMatch=
+location==="all" || jobLocation===location;
+
+if(textMatch && locationMatch){
+
+job.style.display="block";
+found++;
+
+}else{
+
+job.style.display="none";
+
+}
+
+});
+
+document.getElementById("empty").style.display=
+found ? "none" : "block";
+
+scrollJobs();
+
+}
+
+
+function filterLocation(location){
+
+document.getElementById("locationSelect").value=location;
+
+document.getElementById("searchInput").value="";
+
+let found=0;
+
+getJobs().forEach(function(job){
+
+if(job.dataset.location===location){
+
+job.style.display="block";
+found++;
+
+}else{
+
+job.style.display="none";
+
+}
+
+});
+
+document.getElementById("empty").style.display=
+found ? "none" : "block";
+
+scrollJobs();
+
+}
+
+
+function filterCategory(category){
+
+document.getElementById("locationSelect").value="all";
+document.getElementById("searchInput").value="";
+
+let found=0;
+
+getJobs().forEach(function(job){
+
+if(job.dataset.category===category){
+
+job.style.display="block";
+found++;
+
+}else{
+
+job.style.display="none";
+
+}
+
+});
+
+document.getElementById("empty").style.display=
+found ? "none" : "block";
+
+scrollJobs();
+
+}
+
+
+function scrollJobs(){
+
+document.getElementById("jobs")
+.scrollIntoView({
+behavior:"smooth",
+block:"start"
+});
+
+}
+
+
+function demoApply(event){
+
+event.preventDefault();
+
+alert(
+"هذه بطاقة تجريبية في النسخة الحالية.\n\n" +
+"عند إضافة إعلان حقيقي، اربط الزر بمصدر الوظيفة الأصلي."
+);
+
+}
+
+</script>
+
+</body>
+</html>
+```
