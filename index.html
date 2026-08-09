@@ -1,1342 +1,3 @@
-```html
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-
-<title>Arab Jobs Hub - فرص العمل</title>
-
-<style>
-
-*{
-box-sizing:border-box;
-margin:0;
-padding:0;
-}
-
-body{
-font-family:Tahoma,Arial,sans-serif;
-background:#f5f8f7;
-color:#17231f;
-line-height:1.7;
-}
-
-button,input,select{
-font-family:inherit;
-}
-
-button{
-cursor:pointer;
-}
-
-.container{
-width:min(1150px,94%);
-margin:auto;
-}
-
-/* HEADER */
-
-header{
-background:#fff;
-border-bottom:1px solid #e5ebe8;
-position:sticky;
-top:0;
-z-index:1000;
-}
-
-.nav{
-height:70px;
-display:flex;
-align-items:center;
-justify-content:space-between;
-}
-
-.logo{
-display:flex;
-align-items:center;
-gap:10px;
-font-size:20px;
-font-weight:900;
-}
-
-.logo-icon{
-width:43px;
-height:43px;
-border-radius:13px;
-background:#087f5b;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:22px;
-}
-
-.nav-btn{
-border:0;
-background:#087f5b;
-color:#fff;
-padding:10px 18px;
-border-radius:10px;
-font-weight:900;
-}
-
-/* HERO */
-
-.hero{
-background:
-radial-gradient(circle at 10% 20%,rgba(255,255,255,.12),transparent 25%),
-linear-gradient(135deg,#075b43,#087f5b,#0a9c70);
-color:#fff;
-padding:60px 0 95px;
-text-align:center;
-}
-
-.badge{
-display:inline-block;
-background:rgba(255,255,255,.15);
-padding:6px 14px;
-border-radius:30px;
-font-size:12px;
-font-weight:900;
-margin-bottom:15px;
-}
-
-.hero h1{
-font-size:clamp(36px,6vw,60px);
-line-height:1.15;
-font-weight:950;
-}
-
-.hero h1 span{
-color:#d7fff0;
-}
-
-.hero p{
-max-width:700px;
-margin:16px auto 28px;
-font-size:16px;
-opacity:.95;
-}
-
-/* SEARCH */
-
-.search{
-max-width:1080px;
-margin:auto;
-background:#fff;
-padding:8px;
-border-radius:17px;
-display:grid;
-grid-template-columns:1fr 1fr 1.5fr 1fr 115px;
-gap:7px;
-box-shadow:0 18px 45px rgba(0,0,0,.18);
-}
-
-.search input,
-.search select{
-border:0;
-outline:0;
-background:#fff;
-padding:14px 11px;
-font-size:13px;
-min-width:0;
-}
-
-.search button{
-border:0;
-background:#087f5b;
-color:#fff;
-border-radius:10px;
-font-weight:950;
-}
-
-/* STATS */
-
-.stats{
-margin-top:-45px;
-position:relative;
-}
-
-.stats-grid{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:13px;
-}
-
-.stat{
-background:#fff;
-border-radius:17px;
-padding:19px;
-text-align:center;
-box-shadow:0 10px 28px rgba(20,40,40,.08);
-}
-
-.stat strong{
-display:block;
-font-size:24px;
-color:#087f5b;
-font-weight:950;
-}
-
-.stat small{
-color:#77827f;
-font-size:11px;
-}
-
-/* MAIN */
-
-main{
-padding:60px 0;
-}
-
-.section-title{
-text-align:center;
-margin-bottom:25px;
-}
-
-.section-title h2{
-font-size:29px;
-font-weight:950;
-}
-
-.section-title p{
-font-size:13px;
-color:#78837f;
-}
-
-/* COUNTRIES */
-
-.countries{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:13px;
-margin-bottom:50px;
-}
-
-.country{
-background:#fff;
-border:1px solid #e4ebe8;
-border-radius:17px;
-padding:17px;
-cursor:pointer;
-transition:.2s;
-}
-
-.country:hover{
-transform:translateY(-3px);
-box-shadow:0 12px 28px rgba(20,40,40,.09);
-}
-
-.country.active{
-border:2px solid #087f5b;
-background:#effaf5;
-}
-
-.flag{
-font-size:29px;
-}
-
-.country h3{
-font-size:16px;
-}
-
-.country p{
-font-size:11px;
-color:#7a8581;
-}
-
-/* FILTERS */
-
-.filters{
-background:#fff;
-border:1px solid #e6ecea;
-border-radius:18px;
-padding:17px;
-display:flex;
-flex-wrap:wrap;
-gap:9px;
-margin-bottom:25px;
-}
-
-.filters select{
-flex:1;
-min-width:180px;
-padding:12px;
-border:1px solid #dfe7e4;
-border-radius:10px;
-background:#fff;
-outline:0;
-}
-
-.reset{
-border:0;
-padding:11px 18px;
-border-radius:10px;
-background:#eef3f1;
-font-weight:900;
-}
-
-/* DAILY */
-
-.daily{
-display:flex;
-justify-content:space-between;
-align-items:center;
-margin-bottom:18px;
-}
-
-.daily h2{
-font-size:26px;
-}
-
-.counter{
-background:#e7f8f0;
-color:#087f5b;
-padding:5px 10px;
-border-radius:20px;
-font-size:11px;
-font-weight:900;
-margin-right:8px;
-}
-
-.refresh{
-border:0;
-background:#087f5b;
-color:#fff;
-padding:10px 15px;
-border-radius:10px;
-font-weight:900;
-}
-
-/* JOBS */
-
-.jobs{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:17px;
-}
-
-.job{
-background:#fff;
-border:1px solid #e6ecea;
-border-radius:18px;
-overflow:hidden;
-box-shadow:0 7px 22px rgba(20,40,40,.045);
-transition:.2s;
-}
-
-.job:hover{
-transform:translateY(-3px);
-box-shadow:0 15px 35px rgba(20,40,40,.09);
-}
-
-.job-top{
-padding:19px 19px 0;
-display:flex;
-justify-content:space-between;
-gap:10px;
-}
-
-.job h3{
-font-size:18px;
-line-height:1.4;
-}
-
-.company{
-font-size:11px;
-color:#7c8784;
-margin-top:4px;
-}
-
-.new{
-background:#e7f8f0;
-color:#087f5b;
-padding:4px 8px;
-height:max-content;
-border-radius:20px;
-font-size:10px;
-font-weight:900;
-white-space:nowrap;
-}
-
-.job-body{
-padding:17px 19px 19px;
-}
-
-.tags{
-display:flex;
-flex-wrap:wrap;
-gap:6px;
-margin:11px 0;
-}
-
-.tag{
-background:#f1f4f3;
-padding:5px 8px;
-border-radius:8px;
-font-size:10px;
-color:#68736f;
-}
-
-.job-description{
-font-size:12px;
-color:#68736f;
-margin-bottom:14px;
-}
-
-.job-footer{
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:10px;
-}
-
-.date{
-font-size:10px;
-color:#7e8985;
-}
-
-.details{
-border:0;
-background:#087f5b;
-color:#fff;
-padding:10px 15px;
-border-radius:9px;
-font-weight:900;
-font-size:12px;
-}
-
-/* EMPTY */
-
-.empty{
-grid-column:1/-1;
-background:#fff;
-padding:45px 20px;
-border-radius:18px;
-text-align:center;
-color:#697572;
-}
-
-/* MODAL */
-
-.modal{
-position:fixed;
-inset:0;
-background:rgba(0,0,0,.58);
-display:none;
-align-items:center;
-justify-content:center;
-padding:15px;
-z-index:5000;
-}
-
-.modal.show{
-display:flex;
-}
-
-.modal-box{
-background:#fff;
-width:min(590px,100%);
-max-height:90vh;
-overflow:auto;
-border-radius:20px;
-padding:25px;
-position:relative;
-}
-
-.close{
-position:absolute;
-left:17px;
-top:14px;
-width:35px;
-height:35px;
-border:0;
-border-radius:50%;
-background:#f0f2f1;
-font-size:20px;
-}
-
-.modal-box h2{
-font-size:25px;
-padding-left:40px;
-}
-
-.modal-company{
-font-size:12px;
-color:#78827f;
-margin:6px 0 18px;
-}
-
-.modal-grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:9px;
-margin-bottom:18px;
-}
-
-.modal-item{
-background:#f4f7f6;
-padding:11px;
-border-radius:10px;
-font-size:12px;
-}
-
-.modal-description{
-font-size:13px;
-color:#5d6965;
-margin-bottom:18px;
-}
-
-.apply-btn{
-display:block;
-width:100%;
-border:0;
-background:#087f5b;
-color:#fff;
-padding:14px;
-border-radius:11px;
-font-weight:950;
-font-size:14px;
-}
-
-.external-note{
-font-size:10px;
-text-align:center;
-color:#7c8783;
-margin-top:9px;
-}
-
-/* CTA */
-
-.cta{
-margin:60px 0;
-padding:48px 22px;
-border-radius:22px;
-background:linear-gradient(135deg,#075b43,#087f5b);
-color:#fff;
-text-align:center;
-}
-
-.cta h2{
-font-size:30px;
-}
-
-.cta p{
-max-width:650px;
-margin:8px auto 20px;
-opacity:.9;
-}
-
-.cta button{
-border:0;
-background:#fff;
-color:#087f5b;
-padding:13px 25px;
-border-radius:10px;
-font-weight:950;
-}
-
-/* FAQ */
-
-.faq{
-background:#fff;
-border-radius:19px;
-padding:27px;
-}
-
-.faq details{
-padding:15px 0;
-border-bottom:1px solid #edf0ef;
-}
-
-.faq summary{
-cursor:pointer;
-font-weight:900;
-}
-
-.faq p{
-font-size:12px;
-color:#707b77;
-padding-top:8px;
-}
-
-/* FOOTER */
-
-footer{
-background:#13201b;
-color:#aeb9b5;
-text-align:center;
-padding:32px 20px;
-font-size:11px;
-}
-
-footer strong{
-color:#fff;
-}
-
-/* TOAST */
-
-.toast{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#fff;
-padding:13px 17px;
-border-radius:12px;
-box-shadow:0 10px 30px rgba(0,0,0,.18);
-border-right:4px solid #087f5b;
-display:none;
-z-index:9000;
-font-size:12px;
-font-weight:900;
-max-width:340px;
-}
-
-/* MOBILE */
-
-@media(max-width:1000px){
-
-.search{
-grid-template-columns:1fr 1fr;
-}
-
-.search button{
-min-height:47px;
-}
-
-.countries{
-grid-template-columns:repeat(3,1fr);
-}
-
-}
-
-@media(max-width:700px){
-
-.stats-grid{
-grid-template-columns:1fr 1fr;
-}
-
-.countries{
-grid-template-columns:repeat(2,1fr);
-}
-
-.jobs{
-grid-template-columns:1fr;
-}
-
-.search{
-grid-template-columns:1fr;
-}
-
-.daily{
-align-items:flex-start;
-flex-direction:column;
-gap:12px;
-}
-
-}
-
-@media(max-width:450px){
-
-.container{
-width:94%;
-}
-
-.stats-grid{
-grid-template-columns:1fr;
-}
-
-.countries{
-grid-template-columns:1fr;
-}
-
-.modal-grid{
-grid-template-columns:1fr;
-}
-
-.toast{
-left:12px;
-right:12px;
-bottom:12px;
-max-width:none;
-}
-
-}
-
-</style>
-</head>
-
-<body>
-
-
-<header>
-
-<div class="container nav">
-
-<div class="logo">
-
-<div class="logo-icon">
-🌍
-</div>
-
-<span>
-Arab Jobs Hub
-</span>
-
-</div>
-
-<button class="nav-btn" onclick="scrollToJobs()">
-الوظائف
-</button>
-
-</div>
-
-</header>
-
-
-<section class="hero">
-
-<div class="container">
-
-<div class="badge">
-🆕 ابحث عن فرص العمل حسب الدولة والمجال
-</div>
-
-<h1>
-اكتشف
-<span>فرصتك القادمة</span>
-<br>
-في العالم العربي
-</h1>
-
-<p>
-اكتب اسم الوظيفة التي تبحث عنها واختر الدولة المناسبة لك.
-</p>
-
-
-<div class="search">
-
-
-<select id="country" onchange="countryChanged()">
-
-<option value="">
-🌍 اختر الدولة
-</option>
-
-<option value="saudi">
-🇸🇦 السعودية
-</option>
-
-<option value="uae">
-🇦🇪 الإمارات
-</option>
-
-<option value="qatar">
-🇶🇦 قطر
-</option>
-
-<option value="kuwait">
-🇰🇼 الكويت
-</option>
-
-<option value="bahrain">
-🇧🇭 البحرين
-</option>
-
-<option value="oman">
-🇴🇲 عُمان
-</option>
-
-<option value="morocco">
-🇲🇦 المغرب
-</option>
-
-<option value="algeria">
-🇩🇿 الجزائر
-</option>
-
-<option value="tunisia">
-🇹🇳 تونس
-</option>
-
-<option value="egypt">
-🇪🇬 مصر
-</option>
-
-<option value="jordan">
-🇯🇴 الأردن
-</option>
-
-</select>
-
-
-<select id="city">
-
-<option value="">
-🏙️ جميع المدن
-</option>
-
-</select>
-
-
-<input
-id="keyword"
-type="text"
-placeholder="مثال: سائق، محاسب، مهندس..."
-onkeydown="if(event.key==='Enter') searchJobs()"
->
-
-
-<select id="type">
-
-<option value="">
-💼 نوع العمل
-</option>
-
-<option value="دوام كامل">
-دوام كامل
-</option>
-
-<option value="دوام جزئي">
-دوام جزئي
-</option>
-
-<option value="عن بعد">
-عن بعد
-</option>
-
-<option value="مؤقت">
-مؤقت
-</option>
-
-</select>
-
-
-<button onclick="searchJobs()">
-🔎 بحث
-</button>
-
-</div>
-
-</div>
-
-</section>
-
-
-<section class="stats">
-
-<div class="container stats-grid">
-
-<div class="stat">
-
-<strong id="totalJobs">
-50+
-</strong>
-
-<small>
-نتائج البحث
-</small>
-
-</div>
-
-
-<div class="stat">
-
-<strong>
-11
-</strong>
-
-<small>
-دولة عربية
-</small>
-
-</div>
-
-
-<div class="stat">
-
-<strong>
-24/7
-</strong>
-
-<small>
-البحث متاح
-</small>
-
-</div>
-
-
-<div class="stat">
-
-<strong id="todayCount">
-50+
-</strong>
-
-<small>
-نتائج متاحة
-</small>
-
-</div>
-
-</div>
-
-</section>
-
-
-<main>
-
-<div class="container">
-
-
-<div class="section-title">
-
-<h2>
-🌍 اختر الدولة
-</h2>
-
-<p>
-اختر البلد الذي تريد البحث فيه
-</p>
-
-</div>
-
-
-<div class="countries">
-
-
-<div class="country" onclick="chooseCountry('saudi')">
-
-<div class="flag">
-🇸🇦
-</div>
-
-<h3>
-السعودية
-</h3>
-
-<p>
-الرياض · جدة · الدمام
-</p>
-
-</div>
-
-
-<div class="country" onclick="chooseCountry('uae')">
-
-<div class="flag">
-🇦🇪
-</div>
-
-<h3>
-الإمارات
-</h3>
-
-<p>
-دبي · أبوظبي · الشارقة
-</p>
-
-</div>
-
-
-<div class="country" onclick="chooseCountry('qatar')">
-
-<div class="flag">
-🇶🇦
-</div>
-
-<h3>
-قطر
-</h3>
-
-<p>
-الدوحة · الريان · الوكرة
-</p>
-
-</div>
-
-
-<div class="country" onclick="chooseCountry('kuwait')">
-
-<div class="flag">
-🇰🇼
-</div>
-
-<h3>
-الكويت
-</h3>
-
-<p>
-الكويت · حولي · الفروانية
-</p>
-
-</div>
-
-
-<div class="country" onclick="chooseCountry('bahrain')">
-
-<div class="flag">
-🇧🇭
-</div>
-
-<h3>
-البحرين
-</h3>
-
-<p>
-المنامة · المحرق · الرفاع
-</p>
-
-</div>
-
-
-<div class="country" onclick="chooseCountry('oman')">
-
-<div class="flag">
-🇴🇲
-</div>
-
-<h3>
-عُمان
-</h3>
-
-<p>
-مسقط · صلالة · صحار
-</p>
-
-</div>
-
-
-<div class="country" onclick="chooseCountry('morocco')">
-
-<div class="flag">
-🇲🇦
-</div>
-
-<h3>
-المغرب
-</h3>
-
-<p>
-الدار البيضاء · الرباط · طنجة
-</p>
-
-</div>
-
-
-<div class="country" onclick="chooseCountry('algeria')">
-
-<div class="flag">
-🇩🇿
-</div>
-
-<h3>
-الجزائر
-</h3>
-
-<p>
-الجزائر · وهران · قسنطينة
-</p>
-
-</div>
-
-
-<div class="country" onclick="chooseCountry('tunisia')">
-
-<div class="flag">
-🇹🇳
-</div>
-
-<h3>
-تونس
-</h3>
-
-<p>
-تونس · صفاقس · سوسة
-</p>
-
-</div>
-
-
-<div class="country" onclick="chooseCountry('egypt')">
-
-<div class="flag">
-🇪🇬
-</div>
-
-<h3>
-مصر
-</h3>
-
-<p>
-القاهرة · الإسكندرية · الجيزة
-</p>
-
-</div>
-
-
-<div class="country" onclick="chooseCountry('jordan')">
-
-<div class="flag">
-🇯🇴
-</div>
-
-<h3>
-الأردن
-</h3>
-
-<p>
-عمّان · الزرقاء · إربد
-</p>
-
-</div>
-
-
-</div>
-
-
-<div class="filters">
-
-
-<select id="filterCountry" onchange="filterJobs()">
-
-<option value="">
-كل الدول
-</option>
-
-<option value="saudi">السعودية</option>
-<option value="uae">الإمارات</option>
-<option value="qatar">قطر</option>
-<option value="kuwait">الكويت</option>
-<option value="bahrain">البحرين</option>
-<option value="oman">عُمان</option>
-<option value="morocco">المغرب</option>
-<option value="algeria">الجزائر</option>
-<option value="tunisia">تونس</option>
-<option value="egypt">مصر</option>
-<option value="jordan">الأردن</option>
-
-</select>
-
-
-<select id="filterCategory" onchange="filterJobs()">
-
-<option value="">
-كل المجالات
-</option>
-
-<option value="تقنية">تقنية</option>
-<option value="هندسة">هندسة</option>
-<option value="مبيعات">مبيعات</option>
-<option value="محاسبة">محاسبة</option>
-<option value="صحة">صحة</option>
-<option value="تعليم">تعليم</option>
-<option value="سائق">سائق</option>
-<option value="أمن">أمن</option>
-<option value="مطاعم">مطاعم وفنادق</option>
-<option value="بناء">بناء</option>
-
-</select>
-
-
-<select id="filterType" onchange="filterJobs()">
-
-<option value="">
-كل أنواع العمل
-</option>
-
-<option value="دوام كامل">دوام كامل</option>
-<option value="دوام جزئي">دوام جزئي</option>
-<option value="عن بعد">عن بعد</option>
-<option value="مؤقت">مؤقت</option>
-
-</select>
-
-
-<button class="reset" onclick="resetFilters()">
-إعادة ضبط
-</button>
-
-</div>
-
-
-<div class="daily">
-
-<div>
-
-<h2>
-
-🆕 نتائج البحث
-
-<span class="counter" id="resultCounter">
-5 نتائج
-</span>
-
-</h2>
-
-</div>
-
-
-<button class="refresh" onclick="refreshJobs()">
-↻ تحديث
-</button>
-
-</div>
-
-
-<div class="jobs" id="jobList"></div>
-
-
-<section class="cta">
-
-<h2>
-🚀 ابحث عن فرصتك الآن
-</h2>
-
-<p>
-اكتب أي وظيفة تريدها وسنعرض لك 5 اختيارات مرتبطة ببحثك.
-</p>
-
-<button onclick="focusSearch()">
-ابدأ البحث
-</button>
-
-</section>
-
-
-<section class="faq">
-
-<div class="section-title">
-
-<h2>
-❓ الأسئلة الشائعة
-</h2>
-
-</div>
-
-
-<details>
-
-<summary>
-هل Arab Jobs Hub موقع توظيف رسمي؟
-</summary>
-
-<p>
-لا. هذا موقع مستقل للبحث عن فرص العمل ولا يمثل
-أي جهة حكومية أو شركة توظيف.
-</p>
-
-</details>
-
-
-<details>
-
-<summary>
-ماذا يحدث عند الضغط على متابعة لإتمام الإجراءات؟
-</summary>
-
-<p>
-سيتم توجيهك إلى صفحة خارجية لمراجعة المعلومات
-وإتمام الإجراءات المتاحة هناك.
-</p>
-
-</details>
-
-
-<details>
-
-<summary>
-هل جميع النتائج وظائف مضمونة؟
-</summary>
-
-<p>
-لا. تحقق دائمًا من الجهة الناشرة وشروط الوظيفة
-قبل مشاركة أي معلومات شخصية.
-</p>
-
-</details>
-
-</section>
-
-
-</div>
-
-</main>
-
-
-<footer>
-
-<strong>
-🌍 Arab Jobs Hub
-</strong>
-
-<br><br>
-
-منصة مستقلة للبحث عن فرص العمل في العالم العربي.
-
-<br><br>
-
-© 2026 Arab Jobs Hub
-
-</footer>
-
-
-<!-- MODAL -->
-
-<div class="modal" id="modal">
-
-<div class="modal-box">
-
-<button class="close" onclick="closeModal()">
-×
-</button>
-
-
-<h2 id="modalTitle">
-الوظيفة
-</h2>
-
-
-<div class="modal-company" id="modalCompany"></div>
-
-
-<div class="modal-grid">
-
-<div class="modal-item" id="modalCountry"></div>
-
-<div class="modal-item" id="modalCity"></div>
-
-<div class="modal-item" id="modalType"></div>
-
-<div class="modal-item" id="modalCategory"></div>
-
-</div>
-
-
-<div class="modal-description" id="modalDescription"></div>
-
-
-<button class="apply-btn" onclick="goExternal()">
-
-متابعة لإتمام الإجراءات
-
-</button>
-
-
-<div class="external-note">
-
-سيتم توجيهك إلى صفحة خارجية لمراجعة التفاصيل وإتمام الإجراءات المتاحة.
-
-</div>
-
-
-</div>
-
-</div>
-
-
-<div class="toast" id="toast"></div>
-
-
 <script>
 
 /* =====================================================
@@ -1356,136 +17,67 @@ const countries={
 saudi:{
 name:"السعودية",
 flag:"🇸🇦",
-cities:[
-"الرياض",
-"جدة",
-"مكة",
-"المدينة المنورة",
-"الدمام",
-"الخبر",
-"الجبيل",
-"أبها",
-"تبوك"
-]
+cities:["الرياض","جدة","مكة","المدينة المنورة","الدمام","الخبر","الجبيل","أبها","تبوك"]
 },
 
 uae:{
 name:"الإمارات",
 flag:"🇦🇪",
-cities:[
-"دبي",
-"أبوظبي",
-"الشارقة",
-"عجمان",
-"رأس الخيمة",
-"الفجيرة"
-]
+cities:["دبي","أبوظبي","الشارقة","عجمان","رأس الخيمة","الفجيرة"]
 },
 
 qatar:{
 name:"قطر",
 flag:"🇶🇦",
-cities:[
-"الدوحة",
-"الريان",
-"الوكرة",
-"الخور"
-]
+cities:["الدوحة","الريان","الوكرة","الخور"]
 },
 
 kuwait:{
 name:"الكويت",
 flag:"🇰🇼",
-cities:[
-"الكويت",
-"حولي",
-"الفروانية",
-"الجهراء",
-"الأحمدي"
-]
+cities:["الكويت","حولي","الفروانية","الجهراء","الأحمدي"]
 },
 
 bahrain:{
 name:"البحرين",
 flag:"🇧🇭",
-cities:[
-"المنامة",
-"المحرق",
-"الرفاع",
-"مدينة حمد"
-]
+cities:["المنامة","المحرق","الرفاع","مدينة حمد"]
 },
 
 oman:{
 name:"عُمان",
 flag:"🇴🇲",
-cities:[
-"مسقط",
-"صلالة",
-"صحار",
-"نزوى",
-"صور"
-]
+cities:["مسقط","صلالة","صحار","نزوى","صور"]
 },
 
 morocco:{
 name:"المغرب",
 flag:"🇲🇦",
-cities:[
-"الدار البيضاء",
-"الرباط",
-"مراكش",
-"طنجة",
-"فاس",
-"أكادير"
-]
+cities:["الدار البيضاء","الرباط","مراكش","طنجة","فاس","أكادير"]
 },
 
 algeria:{
 name:"الجزائر",
 flag:"🇩🇿",
-cities:[
-"الجزائر",
-"وهران",
-"قسنطينة",
-"عنابة",
-"سطيف"
-]
+cities:["الجزائر","وهران","قسنطينة","عنابة","سطيف"]
 },
 
 tunisia:{
 name:"تونس",
 flag:"🇹🇳",
-cities:[
-"تونس",
-"صفاقس",
-"سوسة",
-"بنزرت",
-"قابس"
-]
+cities:["تونس","صفاقس","سوسة","بنزرت","قابس"]
 },
 
 egypt:{
 name:"مصر",
 flag:"🇪🇬",
-cities:[
-"القاهرة",
-"الجيزة",
-"الإسكندرية",
-"المنصورة",
-"أسيوط"
-]
+cities:["القاهرة","الجيزة","الإسكندرية","المنصورة","أسيوط"]
 },
 
 jordan:{
 name:"الأردن",
 flag:"🇯🇴",
-cities:[
-"عمّان",
-"الزرقاء",
-"إربد",
-"العقبة"
-]
+cities:["عمّان","الزرقاء","إربد","العقبة"]
 }
 
 };
@@ -1567,7 +159,7 @@ const jobs=[
 
 
 /* =====================================================
-   تحويل البيانات
+   تحويل بيانات الوظائف
 ===================================================== */
 
 const jobData=jobs.map(function(j,index){
@@ -1598,9 +190,11 @@ description:
 
 let allResults=[...jobData];
 
+let currentJob=null;
+
 
 /* =====================================================
-   حماية النصوص
+   حماية HTML
 ===================================================== */
 
 function escapeHTML(value){
@@ -1617,10 +211,75 @@ return String(value)
 
 
 /* =====================================================
-   إنشاء نتيجة بحث مخصصة
+   إنشاء رابط مباشر للوظيفة
 ===================================================== */
 
-function createCustomResults(keyword,country,city,type){
+function getJobURL(job){
+
+const url=new URL(
+window.location.href
+);
+
+url.search="";
+
+url.searchParams.set(
+"job",
+job.id
+);
+
+return url.toString();
+
+}
+
+
+/* =====================================================
+   فتح وظيفة من الرابط
+===================================================== */
+
+function openJobFromURL(){
+
+const params=
+new URLSearchParams(
+window.location.search
+);
+
+const jobID=
+params.get("job");
+
+if(jobID===null){
+return;
+}
+
+const job=
+jobData.find(function(item){
+
+return String(item.id)===String(jobID);
+
+});
+
+if(!job){
+return;
+}
+
+setTimeout(function(){
+
+openJob(job);
+
+},500);
+
+}
+
+
+/* =====================================================
+   إنشاء نتائج مخصصة
+===================================================== */
+
+function createCustomResults(
+keyword,
+country,
+city,
+type
+){
 
 const selectedCountry=
 country || "saudi";
@@ -1634,13 +293,11 @@ type || "دوام كامل";
 
 const result=[];
 
-
 for(let i=1;i<=5;i++){
 
 result.push({
 
-id:
-"custom_"+Date.now()+"_"+i,
+id:"custom_"+Date.now()+"_"+i,
 
 title:keyword,
 
@@ -1664,8 +321,31 @@ keyword+
 
 }
 
-
 return result;
+
+}
+
+
+/* =====================================================
+   تحديث العداد
+===================================================== */
+
+function updateCounters(count){
+
+document.getElementById(
+"resultCounter"
+).textContent=
+count+" اختيارات";
+
+document.getElementById(
+"totalJobs"
+).textContent=
+count;
+
+document.getElementById(
+"todayCount"
+).textContent=
+count;
 
 }
 
@@ -1681,16 +361,13 @@ document.getElementById("jobList");
 
 box.innerHTML="";
 
-
 if(!list || !list.length){
 
 box.innerHTML=`
 
 <div class="empty">
 
-<h3>
-🔎 لا توجد نتائج
-</h3>
+<h3>🔎 لا توجد نتائج</h3>
 
 <p>
 اكتب اسم الوظيفة التي تريد البحث عنها.
@@ -1706,14 +383,15 @@ return;
 
 }
 
+const visible=
+list.slice(0,5);
 
-list.slice(0,5).forEach(function(job,index){
+visible.forEach(function(job,index){
 
 const card=
 document.createElement("article");
 
 card.className="job";
-
 
 card.innerHTML=`
 
@@ -1732,7 +410,7 @@ ${escapeHTML(job.company)}
 </div>
 
 <div class="new">
-${index<5?"اختيار":"متاح"}
+اختيار
 </div>
 
 </div>
@@ -1772,19 +450,12 @@ ${escapeHTML(job.description)}
 <div class="job-footer">
 
 <span class="date">
-🔎 نتيجة بحث
+🔗 رابط مباشر
 </span>
 
 <button
 class="details"
-onclick="openJobByObject(this)"
-data-title="${escapeHTML(job.title)}"
-data-company="${escapeHTML(job.company)}"
-data-country="${escapeHTML(job.country)}"
-data-city="${escapeHTML(job.city)}"
-data-category="${escapeHTML(job.category)}"
-data-type="${escapeHTML(job.type)}"
-data-description="${escapeHTML(job.description)}"
+onclick="openJobByID('${String(job.id).replace(/'/g,"\\'") }')"
 >
 
 التفاصيل
@@ -1797,76 +468,95 @@ data-description="${escapeHTML(job.description)}"
 
 `;
 
-
 box.appendChild(card);
 
 });
 
-
-document.getElementById("resultCounter").textContent=
-"5 اختيارات";
-
-document.getElementById("totalJobs").textContent=
-"5";
-
-document.getElementById("todayCount").textContent=
-"5";
+updateCounters(visible.length);
 
 }
 
 
 /* =====================================================
-   فتح التفاصيل
+   فتح وظيفة بالـ ID
 ===================================================== */
 
-let currentJob=null;
+function openJobByID(id){
+
+const job=
+jobData.find(function(item){
+
+return String(item.id)===String(id);
+
+});
+
+if(!job){
+return;
+}
+
+openJob(job);
+
+}
 
 
-function openJobByObject(button){
+/* =====================================================
+   فتح تفاصيل الوظيفة
+===================================================== */
 
-currentJob={
+function openJob(job){
 
-title:button.dataset.title,
+currentJob=job;
 
-company:button.dataset.company,
+document.getElementById(
+"modalTitle"
+).textContent=
+job.title;
 
-country:button.dataset.country,
+document.getElementById(
+"modalCompany"
+).textContent=
+job.company;
 
-city:button.dataset.city,
-
-category:button.dataset.category,
-
-type:button.dataset.type,
-
-description:button.dataset.description
-
-};
-
-
-document.getElementById("modalTitle").textContent=
-currentJob.title;
-
-document.getElementById("modalCompany").textContent=
-currentJob.company;
-
-document.getElementById("modalCountry").textContent=
-countries[currentJob.country].flag+
+document.getElementById(
+"modalCountry"
+).textContent=
+countries[job.country].flag+
 " "+
-countries[currentJob.country].name;
+countries[job.country].name;
 
-document.getElementById("modalCity").textContent=
-"📍 "+currentJob.city;
+document.getElementById(
+"modalCity"
+).textContent=
+"📍 "+job.city;
 
-document.getElementById("modalType").textContent=
-"⏱️ "+currentJob.type;
+document.getElementById(
+"modalType"
+).textContent=
+"⏱️ "+job.type;
 
-document.getElementById("modalCategory").textContent=
-"💼 "+currentJob.category;
+document.getElementById(
+"modalCategory"
+).textContent=
+"💼 "+job.category;
 
-document.getElementById("modalDescription").textContent=
-currentJob.description;
+document.getElementById(
+"modalDescription"
+).textContent=
+job.description;
 
-document.getElementById("modal").classList.add("show");
+
+/* عنوان الصفحة */
+
+document.title=
+job.title+
+" - "+
+countries[job.country].name+
+" | Arab Jobs Hub";
+
+
+document.getElementById(
+"modal"
+).classList.add("show");
 
 }
 
@@ -1878,27 +568,30 @@ document.getElementById("modal").classList.add("show");
 function searchJobs(){
 
 const keyword=
-document.getElementById("keyword")
-.value
-.trim();
+document.getElementById(
+"keyword"
+).value.trim();
 
 const country=
-document.getElementById("country").value;
+document.getElementById(
+"country"
+).value;
 
 const city=
-document.getElementById("city").value;
+document.getElementById(
+"city"
+).value;
 
 const type=
-document.getElementById("type").value;
-
-
-/*
-إذا لم يكتب المستخدم وظيفة
-*/
+document.getElementById(
+"type"
+).value;
 
 if(!keyword){
 
-renderJobs(allResults.slice(0,5));
+renderJobs(
+allResults.slice(0,5)
+);
 
 showToast(
 "🔎 اكتب اسم الوظيفة التي تبحث عنها"
@@ -1910,14 +603,8 @@ return;
 
 }
 
-
-/*
-البحث الحقيقي
-*/
-
 const normalized=
 keyword.toLowerCase();
-
 
 let result=
 allResults.filter(function(job){
@@ -1936,33 +623,23 @@ countries[job.country].name
 
 ).toLowerCase();
 
-
 return(
 
 text.includes(normalized)
 
 &&
-
 (!country || job.country===country)
 
 &&
-
 (!city || job.city===city)
 
 &&
-
 (!type || job.type===type)
 
 );
 
 });
 
-
-/*
-إذا لم يجد شيئاً:
-إنشاء 5 اختيارات مرتبطة مباشرة
-بالكلمة التي كتبها المستخدم.
-*/
 
 if(result.length===0){
 
@@ -1976,22 +653,16 @@ type
 
 }
 
-
-/*
-دائماً 5 اختيارات فقط
-*/
-
 result=result.slice(0,5);
-
 
 renderJobs(result);
 
-
 showToast(
-"🔎 تم العثور على 5 اختيارات لـ: "+
+"🔎 تم العثور على "+
+result.length+
+" اختيارات لـ: "+
 keyword
 );
-
 
 scrollToJobs();
 
@@ -2005,19 +676,22 @@ scrollToJobs();
 function countryChanged(){
 
 const country=
-document.getElementById("country").value;
+document.getElementById(
+"country"
+).value;
 
 const city=
-document.getElementById("city");
+document.getElementById(
+"city"
+);
 
 city.innerHTML=
 '<option value="">🏙️ جميع المدن</option>';
 
-
 if(!country)return;
 
-
-countries[country].cities.forEach(function(name){
+countries[country].cities.forEach(
+function(name){
 
 const option=
 document.createElement("option");
@@ -2035,22 +709,27 @@ city.appendChild(option);
 
 
 /* =====================================================
-   اختيار دولة من البطاقات
+   اختيار دولة
 ===================================================== */
 
 function chooseCountry(country){
 
-document.getElementById("country").value=
+document.getElementById(
+"country"
+).value=
 country;
 
-document.getElementById("filterCountry").value=
+document.getElementById(
+"filterCountry"
+).value=
 country;
 
 countryChanged();
 
 const keyword=
-document.getElementById("keyword").value.trim();
-
+document.getElementById(
+"keyword"
+).value.trim();
 
 if(keyword){
 
@@ -2059,13 +738,18 @@ searchJobs();
 }else{
 
 renderJobs(
+
 allResults
-.filter(job=>job.country===country)
+.filter(function(job){
+
+return job.country===country;
+
+})
 .slice(0,5)
+
 );
 
 }
-
 
 scrollToJobs();
 
@@ -2079,14 +763,19 @@ scrollToJobs();
 function filterJobs(){
 
 const country=
-document.getElementById("filterCountry").value;
+document.getElementById(
+"filterCountry"
+).value;
 
 const category=
-document.getElementById("filterCategory").value;
+document.getElementById(
+"filterCategory"
+).value;
 
 const type=
-document.getElementById("filterType").value;
-
+document.getElementById(
+"filterType"
+).value;
 
 let result=
 allResults.filter(function(job){
@@ -2108,10 +797,6 @@ return(
 });
 
 
-/*
-الفلاتر أيضاً لا تعرض أكثر من 5
-*/
-
 if(result.length===0){
 
 const categoryName=
@@ -2127,8 +812,9 @@ type
 
 }
 
-
-renderJobs(result.slice(0,5));
+renderJobs(
+result.slice(0,5)
+);
 
 }
 
@@ -2139,22 +825,38 @@ renderJobs(result.slice(0,5));
 
 function resetFilters(){
 
-document.getElementById("filterCountry").value="";
+document.getElementById(
+"filterCountry"
+).value="";
 
-document.getElementById("filterCategory").value="";
+document.getElementById(
+"filterCategory"
+).value="";
 
-document.getElementById("filterType").value="";
+document.getElementById(
+"filterType"
+).value="";
 
-document.getElementById("country").value="";
+document.getElementById(
+"country"
+).value="";
 
-document.getElementById("city").innerHTML=
+document.getElementById(
+"city"
+).innerHTML=
 '<option value="">🏙️ جميع المدن</option>';
 
-document.getElementById("keyword").value="";
+document.getElementById(
+"keyword"
+).value="";
 
-document.getElementById("type").value="";
+document.getElementById(
+"type"
+).value="";
 
-renderJobs(allResults.slice(0,5));
+renderJobs(
+allResults.slice(0,5)
+);
 
 showToast(
 "↻ تمت إعادة ضبط البحث"
@@ -2170,9 +872,9 @@ showToast(
 function refreshJobs(){
 
 const keyword=
-document.getElementById("keyword")
-.value
-.trim();
+document.getElementById(
+"keyword"
+).value.trim();
 
 if(keyword){
 
@@ -2180,11 +882,104 @@ searchJobs();
 
 }else{
 
-renderJobs(allResults.slice(0,5));
+renderJobs(
+allResults.slice(0,5)
+);
 
 showToast(
 "↻ تم تحديث النتائج"
 );
+
+}
+
+}
+
+
+/* =====================================================
+   نسخ رابط الوظيفة
+===================================================== */
+
+async function copyJobLink(){
+
+if(!currentJob){
+return;
+}
+
+const url=
+getJobURL(currentJob);
+
+try{
+
+await navigator.clipboard.writeText(url);
+
+showToast(
+"🔗 تم نسخ رابط الوظيفة"
+);
+
+}catch(error){
+
+const temp=
+document.createElement("input");
+
+temp.value=url;
+
+document.body.appendChild(temp);
+
+temp.select();
+
+document.execCommand("copy");
+
+temp.remove();
+
+showToast(
+"🔗 تم نسخ رابط الوظيفة"
+);
+
+}
+
+}
+
+
+/* =====================================================
+   مشاركة الوظيفة
+===================================================== */
+
+async function shareJob(){
+
+if(!currentJob){
+return;
+}
+
+const url=
+getJobURL(currentJob);
+
+const shareData={
+
+title:
+currentJob.title+
+" - Arab Jobs Hub",
+
+text:
+"شاهد فرصة العمل: "+
+currentJob.title+
+" في "+
+countries[currentJob.country].name,
+
+url:url
+
+};
+
+if(navigator.share){
+
+try{
+
+await navigator.share(shareData);
+
+}catch(error){}
+
+}else{
+
+await copyJobLink();
 
 }
 
@@ -2223,9 +1018,15 @@ document
 }
 
 
+/* =====================================================
+   إغلاق عند الضغط خارج النافذة
+===================================================== */
+
 document
 .getElementById("modal")
-.addEventListener("click",function(event){
+.addEventListener(
+"click",
+function(event){
 
 if(event.target===this){
 
@@ -2233,7 +1034,8 @@ closeModal();
 
 }
 
-});
+}
+);
 
 
 /* =====================================================
@@ -2241,7 +1043,6 @@ closeModal();
 ===================================================== */
 
 let toastTimer;
-
 
 function showToast(message){
 
@@ -2255,7 +1056,6 @@ message;
 
 toast.style.display=
 "block";
-
 
 toastTimer=
 setTimeout(function(){
@@ -2297,7 +1097,6 @@ behavior:"smooth"
 
 });
 
-
 setTimeout(function(){
 
 document
@@ -2310,6 +1109,74 @@ document
 
 
 /* =====================================================
+   إضافة أزرار مشاركة داخل النافذة
+===================================================== */
+
+(function(){
+
+const modalBox=
+document.querySelector(".modal-box");
+
+const applyButton=
+document.querySelector(".apply-btn");
+
+if(!modalBox || !applyButton){
+return;
+}
+
+const shareArea=
+document.createElement("div");
+
+shareArea.style.display="grid";
+shareArea.style.gridTemplateColumns="1fr 1fr";
+shareArea.style.gap="8px";
+shareArea.style.marginTop="9px";
+
+shareArea.innerHTML=`
+
+<button
+type="button"
+onclick="copyJobLink()"
+style="
+border:0;
+background:#eef3f1;
+color:#087f5b;
+padding:12px;
+border-radius:10px;
+font-weight:900;
+cursor:pointer;
+"
+>
+🔗 نسخ الرابط
+</button>
+
+<button
+type="button"
+onclick="shareJob()"
+style="
+border:0;
+background:#eef3f1;
+color:#087f5b;
+padding:12px;
+border-radius:10px;
+font-weight:900;
+cursor:pointer;
+"
+>
+📤 مشاركة
+</button>
+
+`;
+
+applyButton.insertAdjacentElement(
+"afterend",
+shareArea
+);
+
+})();
+
+
+/* =====================================================
    البداية
 ===================================================== */
 
@@ -2317,8 +1184,11 @@ renderJobs(
 allResults.slice(0,5)
 );
 
-</script>
 
-</body>
-</html>
-```
+/* =====================================================
+   التحقق من الرابط المباشر
+===================================================== */
+
+openJobFromURL();
+
+</script>
