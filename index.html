@@ -1,14 +1,13 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Arab Jobs Hub | وظائف في العالم العربي</title>
 
 <meta name="description"
-content="Arab Jobs Hub - منصة مستقلة للبحث عن فرص العمل في العالم العربي">
-
-<title>Arab Jobs Hub | وظائف عربية</title>
+content="Arab Jobs Hub - منصة مستقلة للبحث عن فرص العمل في الدول العربية.">
 
 <style>
 *{
@@ -423,7 +422,7 @@ border-radius:18px;
 color:#737e83
 }
 
-/* POPUP */
+/* MODAL */
 
 .modal{
 position:fixed;
@@ -502,6 +501,13 @@ color:#fff;
 padding:14px;
 border-radius:11px;
 font-weight:950
+}
+
+.external-note{
+font-size:10px;
+text-align:center;
+color:#818b8f;
+margin-top:9px
 }
 
 /* CTA */
@@ -703,7 +709,7 @@ Arab Jobs Hub
 <div class="container">
 
 <div class="badge">
-🆕 يتم تحديث قائمة البيانات يوميًا
+🆕 بيانات الوظائف قابلة للتحديث
 </div>
 
 <h1>
@@ -836,7 +842,7 @@ onkeydown="if(event.key==='Enter') searchJobs()"
 </h2>
 
 <p>
-ابدأ باختيار الدولة التي تريد العمل فيها
+ابدأ باختيار الدولة التي تريد البحث فيها
 </p>
 
 </div>
@@ -844,67 +850,67 @@ onkeydown="if(event.key==='Enter') searchJobs()"
 
 <div class="countries">
 
-<div class="country" data-country="saudi" onclick="chooseCountry('saudi')">
+<div class="country" onclick="chooseCountry('saudi')">
 <div class="flag">🇸🇦</div>
 <h3>السعودية</h3>
 <p>الرياض · جدة · الدمام</p>
 </div>
 
-<div class="country" data-country="uae" onclick="chooseCountry('uae')">
+<div class="country" onclick="chooseCountry('uae')">
 <div class="flag">🇦🇪</div>
 <h3>الإمارات</h3>
 <p>دبي · أبوظبي · الشارقة</p>
 </div>
 
-<div class="country" data-country="qatar" onclick="chooseCountry('qatar')">
+<div class="country" onclick="chooseCountry('qatar')">
 <div class="flag">🇶🇦</div>
 <h3>قطر</h3>
 <p>الدوحة · الريان · الوكرة</p>
 </div>
 
-<div class="country" data-country="kuwait" onclick="chooseCountry('kuwait')">
+<div class="country" onclick="chooseCountry('kuwait')">
 <div class="flag">🇰🇼</div>
 <h3>الكويت</h3>
 <p>الكويت · حولي · الفروانية</p>
 </div>
 
-<div class="country" data-country="bahrain" onclick="chooseCountry('bahrain')">
+<div class="country" onclick="chooseCountry('bahrain')">
 <div class="flag">🇧🇭</div>
 <h3>البحرين</h3>
 <p>المنامة · المحرق · الرفاع</p>
 </div>
 
-<div class="country" data-country="oman" onclick="chooseCountry('oman')">
+<div class="country" onclick="chooseCountry('oman')">
 <div class="flag">🇴🇲</div>
 <h3>عُمان</h3>
 <p>مسقط · صلالة · صحار</p>
 </div>
 
-<div class="country" data-country="morocco" onclick="chooseCountry('morocco')">
+<div class="country" onclick="chooseCountry('morocco')">
 <div class="flag">🇲🇦</div>
 <h3>المغرب</h3>
 <p>الدار البيضاء · الرباط · طنجة</p>
 </div>
 
-<div class="country" data-country="algeria" onclick="chooseCountry('algeria')">
+<div class="country" onclick="chooseCountry('algeria')">
 <div class="flag">🇩🇿</div>
 <h3>الجزائر</h3>
 <p>الجزائر · وهران · قسنطينة</p>
 </div>
 
-<div class="country" data-country="tunisia" onclick="chooseCountry('tunisia')">
+<div class="country" onclick="chooseCountry('tunisia')">
 <div class="flag">🇹🇳</div>
 <h3>تونس</h3>
 <p>تونس · صفاقس · سوسة</p>
 </div>
 
-<div class="country" data-country="egypt" onclick="chooseCountry('egypt')">
+<div class="country" onclick="chooseCountry('egypt')">
 <div class="flag">🇪🇬</div>
 <h3>مصر</h3>
 <p>القاهرة · الإسكندرية · الجيزة</p>
 </div>
 
-<div class="country" data-country="jordan" onclick="chooseCountry('jordan')">
+<div class="country" onclick="chooseCountry('jordan')">
 <div class="flag">🇯🇴</div>
 <h3>الأردن</h3>
 <p>عمّان · الزرقاء · إربد</p>
@@ -916,7 +922,11 @@ onkeydown="if(event.key==='Enter') searchJobs()"
 <div class="filters">
 
 <select id="filterCountry" onchange="filterJobs()">
-<option value="">كل الدول</option>
+
+<option value="">
+كل الدول
+</option>
+
 <option value="saudi">السعودية</option>
 <option value="uae">الإمارات</option>
 <option value="qatar">قطر</option>
@@ -928,6 +938,7 @@ onkeydown="if(event.key==='Enter') searchJobs()"
 <option value="tunisia">تونس</option>
 <option value="egypt">مصر</option>
 <option value="jordan">الأردن</option>
+
 </select>
 
 
@@ -957,21 +968,10 @@ onkeydown="if(event.key==='Enter') searchJobs()"
 كل أنواع العمل
 </option>
 
-<option value="دوام كامل">
-دوام كامل
-</option>
-
-<option value="دوام جزئي">
-دوام جزئي
-</option>
-
-<option value="عن بعد">
-عن بعد
-</option>
-
-<option value="مؤقت">
-مؤقت
-</option>
+<option value="دوام كامل">دوام كامل</option>
+<option value="دوام جزئي">دوام جزئي</option>
+<option value="عن بعد">عن بعد</option>
+<option value="مؤقت">مؤقت</option>
 
 </select>
 
@@ -988,11 +988,11 @@ onkeydown="if(event.key==='Enter') searchJobs()"
 <div class="daily-title">
 
 <h2>
-🆕 وظائف اليوم
+🆕 الوظائف
 </h2>
 
 <span>
-تحديث يومي
+تحديث البيانات
 </span>
 
 </div>
@@ -1004,13 +1004,7 @@ onkeydown="if(event.key==='Enter') searchJobs()"
 </div>
 
 
-<div class="jobs" id="jobList">
-
-<div class="empty" id="empty">
-🔎 لا توجد نتائج مطابقة حاليًا.
-</div>
-
-</div>
+<div class="jobs" id="jobList"></div>
 
 
 <section class="cta">
@@ -1048,7 +1042,7 @@ onkeydown="if(event.key==='Enter') searchJobs()"
 </summary>
 
 <p>
-لا. Arab Jobs Hub صفحة مستقلة للبحث عن معلومات وفرص العمل،
+لا. Arab Jobs Hub منصة مستقلة للبحث عن معلومات وفرص العمل،
 وليست جهة حكومية أو شركة توظيف رسمية.
 </p>
 
@@ -1058,13 +1052,12 @@ onkeydown="if(event.key==='Enter') searchJobs()"
 <details>
 
 <summary>
-هل الوظائف محدثة يوميًا؟
+هل الوظائف مضمونة؟
 </summary>
 
 <p>
-الواجهة مجهزة لنظام تحديث يومي. في هذه النسخة يتم استخدام
-بيانات تجريبية داخل الصفحة. للحصول على تحديثات حقيقية تلقائيًا
-يجب ربط الموقع بمصدر وظائف أو API موثوق.
+لا. يجب دائمًا التحقق من مصدر الإعلان وشروط التقديم قبل
+إرسال أي معلومات شخصية.
 </p>
 
 </details>
@@ -1073,25 +1066,12 @@ onkeydown="if(event.key==='Enter') searchJobs()"
 <details>
 
 <summary>
-هل يمكنني البحث عن أي وظيفة؟
+ما هو رابط التقديم؟
 </summary>
 
 <p>
-يمكنك البحث بأي كلمة أو مسمى وظيفي، مثل سائق أو مهندس أو محاسب.
-</p>
-
-</details>
-
-
-<details>
-
-<summary>
-هل أضمن الحصول على الوظيفة؟
-</summary>
-
-<p>
-لا. الموقع لا يضمن القبول أو التوظيف. يجب التحقق من الإعلان
-ومصدره وشروطه قبل إرسال أي معلومات.
+قد يتم توجيه المستخدم إلى مصدر خارجي للحصول على معلومات
+إضافية. يجب مراجعة الصفحة الخارجية قبل المتابعة.
 </p>
 
 </details>
@@ -1120,7 +1100,7 @@ onkeydown="if(event.key==='Enter') searchJobs()"
 </footer>
 
 
-<!-- MODAL -->
+<!-- JOB MODAL -->
 
 <div class="modal" id="modal">
 
@@ -1131,27 +1111,43 @@ onkeydown="if(event.key==='Enter') searchJobs()"
 </button>
 
 <h2 id="modalTitle">
-وظيفة
+الوظيفة
 </h2>
 
 <div class="modal-company" id="modalCompany">
 </div>
 
+
 <div class="modal-grid">
 
 <div class="modal-item" id="modalCountry"></div>
+
 <div class="modal-item" id="modalCity"></div>
+
 <div class="modal-item" id="modalType"></div>
+
 <div class="modal-item" id="modalCategory"></div>
 
 </div>
 
-<div class="modal-description" id="modalDescription">
+
+<div class="modal-description"
+id="modalDescription">
 </div>
 
-<button class="apply-btn" onclick="showApplyMessage()">
-معرفة طريقة التقديم
+
+<button class="apply-btn"
+onclick="goExternal()">
+
+متابعة إلى المصدر الخارجي
+
 </button>
+
+<div class="external-note">
+
+سيتم فتح صفحة خارجية. هذا الرابط ليس موقع توظيف رسميًا.
+
+</div>
 
 </div>
 
@@ -1163,112 +1159,92 @@ onkeydown="if(event.key==='Enter') searchJobs()"
 
 <script>
 
-/* ======================================
+/* ================================
+   رابط SmartLink الخارجي
+================================ */
+
+const EXTERNAL_LINK =
+"https://appsave.online/sl/melrj";
+
+
+/* ================================
    الدول والمدن
-====================================== */
+================================ */
 
 const countries={
 
 saudi:{
 name:"السعودية",
 flag:"🇸🇦",
-cities:[
-"الرياض","جدة","مكة","المدينة المنورة",
-"الدمام","الخبر","الظهران","الجبيل",
-"الطائف","أبها","تبوك","بريدة"
-]
+cities:["الرياض","جدة","مكة","المدينة المنورة","الدمام","الخبر","الجبيل","أبها","تبوك"]
 },
 
 uae:{
 name:"الإمارات",
 flag:"🇦🇪",
-cities:[
-"دبي","أبوظبي","الشارقة","عجمان",
-"رأس الخيمة","الفجيرة","أم القيوين"
-]
+cities:["دبي","أبوظبي","الشارقة","عجمان","رأس الخيمة","الفجيرة"]
 },
 
 qatar:{
 name:"قطر",
 flag:"🇶🇦",
-cities:[
-"الدوحة","الريان","الوكرة","الخور","أم صلال"
-]
+cities:["الدوحة","الريان","الوكرة","الخور"]
 },
 
 kuwait:{
 name:"الكويت",
 flag:"🇰🇼",
-cities:[
-"الكويت","حولي","الفروانية","الجهراء",
-"الأحمدي","مبارك الكبير"
-]
+cities:["الكويت","حولي","الفروانية","الجهراء","الأحمدي"]
 },
 
 bahrain:{
 name:"البحرين",
 flag:"🇧🇭",
-cities:[
-"المنامة","المحرق","الرفاع","مدينة حمد"
-]
+cities:["المنامة","المحرق","الرفاع","مدينة حمد"]
 },
 
 oman:{
 name:"عُمان",
 flag:"🇴🇲",
-cities:[
-"مسقط","صلالة","صحار","نزوى","صور"
-]
+cities:["مسقط","صلالة","صحار","نزوى","صور"]
 },
 
 morocco:{
 name:"المغرب",
 flag:"🇲🇦",
-cities:[
-"الدار البيضاء","الرباط","مراكش","طنجة",
-"فاس","أكادير","مكناس","وجدة"
-]
+cities:["الدار البيضاء","الرباط","مراكش","طنجة","فاس","أكادير"]
 },
 
 algeria:{
 name:"الجزائر",
 flag:"🇩🇿",
-cities:[
-"الجزائر","وهران","قسنطينة","عنابة","سطيف"
-]
+cities:["الجزائر","وهران","قسنطينة","عنابة","سطيف"]
 },
 
 tunisia:{
 name:"تونس",
 flag:"🇹🇳",
-cities:[
-"تونس","صفاقس","سوسة","بنزرت","قابس"
-]
+cities:["تونس","صفاقس","سوسة","بنزرت","قابس"]
 },
 
 egypt:{
 name:"مصر",
 flag:"🇪🇬",
-cities:[
-"القاهرة","الجيزة","الإسكندرية",
-"المنصورة","أسيوط","طنطا"
-]
+cities:["القاهرة","الجيزة","الإسكندرية","المنصورة","أسيوط"]
 },
 
 jordan:{
 name:"الأردن",
 flag:"🇯🇴",
-cities:[
-"عمّان","الزرقاء","إربد","العقبة","السلط"
-]
+cities:["عمّان","الزرقاء","إربد","العقبة"]
 }
 
 };
 
 
-/* ======================================
-   بيانات الوظائف التجريبية
-====================================== */
+/* ================================
+   الوظائف التجريبية
+================================ */
 
 const jobs=[
 
@@ -1279,7 +1255,7 @@ country:"uae",
 city:"دبي",
 category:"تقنية",
 type:"دوام كامل",
-description:"فرصة تجريبية لمطور برمجيات ضمن فريق تقني.",
+description:"فرصة تجريبية في مجال تطوير البرمجيات.",
 days:0
 },
 
@@ -1290,7 +1266,7 @@ country:"qatar",
 city:"الدوحة",
 category:"هندسة",
 type:"دوام كامل",
-description:"وظيفة تجريبية في مجال إدارة وتنفيذ المشاريع.",
+description:"فرصة تجريبية في مجال إدارة المشاريع.",
 days:0
 },
 
@@ -1301,7 +1277,7 @@ country:"morocco",
 city:"الدار البيضاء",
 category:"مبيعات",
 type:"دوام كامل",
-description:"فرصة تجريبية في مجال المبيعات وخدمة العملاء.",
+description:"فرصة تجريبية في مجال المبيعات.",
 days:0
 },
 
@@ -1312,7 +1288,7 @@ country:"saudi",
 city:"الرياض",
 category:"سائق",
 type:"دوام كامل",
-description:"فرصة تجريبية لسائق توصيل داخل المدينة.",
+description:"فرصة تجريبية لسائق توصيل.",
 days:0
 },
 
@@ -1323,7 +1299,7 @@ country:"kuwait",
 city:"الكويت",
 category:"محاسبة",
 type:"دوام كامل",
-description:"وظيفة تجريبية في مجال المحاسبة والحسابات.",
+description:"فرصة تجريبية في مجال المحاسبة.",
 days:1
 },
 
@@ -1345,7 +1321,7 @@ country:"bahrain",
 city:"المنامة",
 category:"أمن",
 type:"دوام كامل",
-description:"وظيفة تجريبية في مجال الأمن والحماية.",
+description:"فرصة تجريبية في مجال الأمن.",
 days:0
 },
 
@@ -1356,7 +1332,7 @@ country:"jordan",
 city:"عمّان",
 category:"تعليم",
 type:"دوام جزئي",
-description:"فرصة تجريبية للتدريس.",
+description:"فرصة تجريبية في مجال التعليم.",
 days:1
 },
 
@@ -1378,7 +1354,7 @@ country:"tunisia",
 city:"تونس",
 category:"مطاعم",
 type:"دوام كامل",
-description:"وظيفة تجريبية في مجال الضيافة والاستقبال.",
+description:"فرصة تجريبية في مجال الضيافة.",
 days:0
 },
 
@@ -1389,7 +1365,7 @@ country:"algeria",
 city:"الجزائر",
 category:"هندسة",
 type:"دوام كامل",
-description:"وظيفة تجريبية للمهندسين المدنيين.",
+description:"فرصة تجريبية للمهندسين المدنيين.",
 days:1
 },
 
@@ -1407,19 +1383,17 @@ days:0
 ];
 
 
-/* ======================================
-   توليد التاريخ
-====================================== */
+/* ================================
+   التاريخ
+================================ */
 
 function getDate(daysAgo){
 
-const date=new Date();
+const d=new Date();
 
-date.setDate(
-date.getDate()-daysAgo
-);
+d.setDate(d.getDate()-daysAgo);
 
-return date.toLocaleDateString(
+return d.toLocaleDateString(
 "ar-MA",
 {
 year:"numeric",
@@ -1431,9 +1405,25 @@ day:"numeric"
 }
 
 
-/* ======================================
-   إنشاء بطاقات الوظائف
-====================================== */
+/* ================================
+   حماية HTML
+================================ */
+
+function escapeHTML(value){
+
+return String(value)
+.replace(/&/g,"&amp;")
+.replace(/</g,"&lt;")
+.replace(/>/g,"&gt;")
+.replace(/"/g,"&quot;")
+.replace(/'/g,"&#039;");
+
+}
+
+
+/* ================================
+   عرض الوظائف
+================================ */
 
 function renderJobs(list=jobs){
 
@@ -1444,24 +1434,13 @@ container.innerHTML="";
 
 let today=0;
 
+list.forEach(function(job,index){
 
-list.forEach((job,index)=>{
+if(job.days===0) today++;
 
-if(job.days===0)
-today++;
-
-
-const card=
-document.createElement("article");
+const card=document.createElement("article");
 
 card.className="job";
-
-card.dataset.country=job.country;
-card.dataset.category=job.category;
-card.dataset.type=job.type;
-card.dataset.city=job.city;
-card.dataset.title=job.title.toLowerCase();
-
 
 card.innerHTML=`
 
@@ -1525,7 +1504,7 @@ ${escapeHTML(job.description)}
 
 <button
 class="details"
-onclick="openJob(${index})">
+onclick="openJob(${jobs.indexOf(job)})">
 
 التفاصيل
 
@@ -1537,27 +1516,27 @@ onclick="openJob(${index})">
 
 `;
 
-
 container.appendChild(card);
 
 });
 
 
-document.getElementById("totalJobs").textContent=list.length;
+document.getElementById("totalJobs").textContent=
+list.length;
 
-document.getElementById("todayCount").textContent=today;
+document.getElementById("todayCount").textContent=
+today;
 
 
 if(list.length===0){
 
-const empty=
-document.createElement("div");
+const empty=document.createElement("div");
 
 empty.className="empty";
 
 empty.style.display="block";
 
-empty.innerHTML=
+empty.textContent=
 "🔎 لا توجد نتائج مطابقة حاليًا.";
 
 container.appendChild(empty);
@@ -1567,9 +1546,9 @@ container.appendChild(empty);
 }
 
 
-/* ======================================
-   فتح الوظيفة
-====================================== */
+/* ================================
+   تفاصيل الوظيفة
+================================ */
 
 let currentJob=null;
 
@@ -1591,29 +1570,46 @@ countries[job.country].flag+
 countries[job.country].name;
 
 document.getElementById("modalCity").textContent=
-"📍 "+
-job.city;
+"📍 "+job.city;
 
 document.getElementById("modalType").textContent=
-"⏱️ "+
-job.type;
+"⏱️ "+job.type;
 
 document.getElementById("modalCategory").textContent=
-"💼 "+
-job.category;
+"💼 "+job.category;
 
 document.getElementById("modalDescription").textContent=
 job.description+
-" يجب التحقق من مصدر الإعلان وشروط التقديم قبل مشاركة أي معلومات شخصية.";
+" يجب التحقق من مصدر الإعلان وشروط التقديم قبل مشاركة المعلومات الشخصية.";
 
 document.getElementById("modal").classList.add("show");
 
 }
 
 
-/* ======================================
-   إغلاق
-====================================== */
+/* ================================
+   SmartLink
+================================ */
+
+function goExternal(){
+
+/*
+  الرابط ظاهر للمستخدم بوضوح كصفحة خارجية.
+  لا يتم تقديمه على أنه موقع توظيف رسمي.
+*/
+
+window.open(
+EXTERNAL_LINK,
+"_blank",
+"noopener,noreferrer"
+);
+
+}
+
+
+/* ================================
+   إغلاق النافذة
+================================ */
 
 function closeModal(){
 
@@ -1624,22 +1620,9 @@ document
 }
 
 
-/* ======================================
-   رسالة التقديم
-====================================== */
-
-function showApplyMessage(){
-
-showToast(
-"ℹ️ هذه نسخة تجريبية. أضف رابط مصدر الوظيفة الحقيقي هنا عند ربط الموقع بمصدر وظائف."
-);
-
-}
-
-
-/* ======================================
+/* ================================
    اختيار الدولة
-====================================== */
+================================ */
 
 function chooseCountry(country){
 
@@ -1653,24 +1636,14 @@ country;
 
 filterJobs();
 
-document
-.getElementById("keyword")
-.focus();
-
-showToast(
-countries[country].flag+
-" تم اختيار "+
-countries[country].name
-);
-
 scrollToJobs();
 
 }
 
 
-/* ======================================
-   تغيير الدولة
-====================================== */
+/* ================================
+   المدن
+================================ */
 
 function countryChanged(){
 
@@ -1692,8 +1665,8 @@ const option=
 document.createElement("option");
 
 option.value=item;
-option.textContent=
-"📍 "+item;
+
+option.textContent="📍 "+item;
 
 city.appendChild(option);
 
@@ -1702,9 +1675,9 @@ city.appendChild(option);
 }
 
 
-/* ======================================
+/* ================================
    البحث
-====================================== */
+================================ */
 
 function searchJobs(){
 
@@ -1725,49 +1698,34 @@ const type=
 document.getElementById("type").value;
 
 
-if(!keyword && !country && !city && !type){
+const result=jobs.filter(function(job){
 
-renderJobs();
+const title=job.title.toLowerCase();
 
-showToast("🔎 عرض جميع الوظائف");
-
-return;
-
-}
-
-
-const result=
-jobs.filter(function(job){
-
-const title=
-job.title.toLowerCase();
-
-const company=
-job.company.toLowerCase();
-
-const matchesKeyword=
-!keyword ||
-title.includes(keyword) ||
-company.includes(keyword) ||
-job.category.includes(keyword);
-
-const matchesCountry=
-!country ||
-job.country===country;
-
-const matchesCity=
-!city ||
-job.city===city;
-
-const matchesType=
-!type ||
-job.type===type;
+const company=job.company.toLowerCase();
 
 return(
-matchesKeyword &&
-matchesCountry &&
-matchesCity &&
-matchesType
+
+(!keyword ||
+title.includes(keyword) ||
+company.includes(keyword) ||
+job.category.includes(keyword))
+
+&&
+
+(!country ||
+job.country===country)
+
+&&
+
+(!city ||
+job.city===city)
+
+&&
+
+(!type ||
+job.type===type)
+
 );
 
 });
@@ -1776,9 +1734,7 @@ matchesType
 renderJobs(result);
 
 showToast(
-"🔎 تم العثور على "+
-result.length+
-" نتيجة"
+"🔎 النتائج: "+result.length
 );
 
 scrollToJobs();
@@ -1786,9 +1742,9 @@ scrollToJobs();
 }
 
 
-/* ======================================
+/* ================================
    الفلاتر
-====================================== */
+================================ */
 
 function filterJobs(){
 
@@ -1802,13 +1758,20 @@ const type=
 document.getElementById("filterType").value;
 
 
-const result=
-jobs.filter(function(job){
+const result=jobs.filter(function(job){
 
 return(
-(!country || job.country===country) &&
-(!category || job.category===category) &&
+
+(!country || job.country===country)
+
+&&
+
+(!category || job.category===category)
+
+&&
+
 (!type || job.type===type)
+
 );
 
 });
@@ -1819,33 +1782,35 @@ renderJobs(result);
 }
 
 
-/* ======================================
+/* ================================
    إعادة الضبط
-====================================== */
+================================ */
 
 function resetFilters(){
 
 document.getElementById("filterCountry").value="";
+
 document.getElementById("filterCategory").value="";
+
 document.getElementById("filterType").value="";
 
 document.getElementById("country").value="";
+
 document.getElementById("city").innerHTML=
 '<option value="">🏙️ المدينة</option>';
 
 document.getElementById("keyword").value="";
+
 document.getElementById("type").value="";
 
 renderJobs();
 
-showToast("↻ تم إعادة ضبط البحث");
-
 }
 
 
-/* ======================================
+/* ================================
    تحديث
-====================================== */
+================================ */
 
 function refreshJobs(){
 
@@ -1858,9 +1823,9 @@ showToast(
 }
 
 
-/* ======================================
-   Scroll
-====================================== */
+/* ================================
+   التنقل
+================================ */
 
 function scrollToJobs(){
 
@@ -1873,10 +1838,6 @@ block:"start"
 
 }
 
-
-/* ======================================
-   التركيز
-====================================== */
 
 function focusSearch(){
 
@@ -1896,9 +1857,9 @@ document
 }
 
 
-/* ======================================
+/* ================================
    Toast
-====================================== */
+================================ */
 
 let toastTimer;
 
@@ -1913,65 +1874,39 @@ toast.textContent=message;
 
 toast.style.display="block";
 
-toastTimer=
-setTimeout(function(){
+toastTimer=setTimeout(function(){
 
 toast.style.display="none";
 
-},4000);
+},3500);
 
 }
 
 
-/* ======================================
-   حماية النصوص
-====================================== */
-
-function escapeHTML(value){
-
-return String(value)
-.replace(/&/g,"&amp;")
-.replace(/</g,"&lt;")
-.replace(/>/g,"&gt;")
-.replace(/"/g,"&quot;")
-.replace(/'/g,"&#039;");
-
-}
-
-
-/* ======================================
-   إغلاق Modal بالنقر خارجها
-====================================== */
+/* ================================
+   إغلاق Modal
+================================ */
 
 document
 .getElementById("modal")
 .addEventListener(
 "click",
-function(event){
+function(e){
 
-if(event.target===this)
+if(e.target===this)
 closeModal();
 
 }
 );
 
 
-/* ======================================
-   البداية
-====================================== */
+/* ================================
+   التشغيل
+================================ */
 
 renderJobs();
-
-setTimeout(function(){
-
-showToast(
-"🌍 اختر الدولة وابدأ البحث عن وظيفة"
-);
-
-},1500);
 
 </script>
 
 </body>
 </html>
-```
